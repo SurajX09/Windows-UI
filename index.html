@@ -3,45 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows 11</title>
+  <meta name="theme-color" content="#10131c">
+  <meta name="description" content="A clean, responsive desktop interface with a soft glass finish.">
+  <title>Desktop — Windows UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div id="desktop">
+  <main class="desktop" id="desktop">
+    <header class="topbar" aria-label="Desktop status bar">
+      <a class="brand" href="#desktop" aria-label="Home">
+        <img src="image/windo.webp" alt="" width="19" height="19">
+        <span>Desktop</span>
+      </a>
+      <div class="topbar-right">
+        <span class="status-pill"><span class="status-dot"></span> All systems normal</span>
+        <time class="top-clock" id="topClock"></time>
+      </div>
+    </header>
 
-  <div class="icon">
-    <h1>its`s A Desktop Screen Simuletion Try'ed By <span>SURAJ</span></h1>
-  </div>
+    <section class="welcome" aria-label="Welcome">
+      <p class="eyebrow">A little space to focus</p>
+      <h1>Make yourself<br><span>at home.</span></h1>
+      <p class="welcome-copy">A calm, familiar desktop—ready when you are.</p>
+    </section>
 
-  
-  <div id="startMenu" class="menu">
-    <h3>Pinned Apps</h3>
-    <div class="apps">
-      <div class="app">📁 File Explorer</div>
-      <div class="app">🌐 Edge</div>
-      <div class="app">🎵 Music</div>
-      <div class="app">⚙️ Settings</div>
-    </div>
-  </div>
+    <section class="start-menu" id="startMenu" aria-labelledby="menuTitle" hidden>
+      <div class="menu-search" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="appSearch" type="search" placeholder="Search apps" aria-label="Search apps">
+        <kbd>⌘ K</kbd>
+      </div>
+      <div class="menu-heading">
+        <div>
+          <p class="eyebrow">Your workspace</p>
+          <h2 id="menuTitle">Pinned apps</h2>
+        </div>
+        <span class="app-count">4 apps</span>
+      </div>
+      <div class="apps" id="appsGrid">
+        <button class="app" type="button" data-app="File Explorer"><span class="app-icon folder" aria-hidden="true">▰</span><span>File Explorer</span></button>
+        <button class="app" type="button" data-app="Microsoft Edge"><img class="app-icon" src="image/edge.webp" alt=""><span>Microsoft Edge</span></button>
+        <button class="app" type="button" data-app="Chrome"><img class="app-icon" src="image/crome.webp" alt=""><span>Chrome</span></button>
+        <button class="app" type="button" data-app="Settings"><span class="app-icon settings" aria-hidden="true">⚙</span><span>Settings</span></button>
+      </div>
+      <div class="menu-footer">
+        <div class="user-avatar" aria-hidden="true">S</div>
+        <span>Suraj</span>
+        <button class="power-button" type="button" aria-label="Power options" title="Power options">⏻</button>
+      </div>
+    </section>
 
- 
-  <div class="nav">
-    <div class="left"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <div class="center">
-      <img src="image/windo.webp" id="startBtn" alt="">
-      <img src="image/edge.webp" alt="">
-    </div>
-
-    <div class="right">
-      <h2>ENG</h2>
-      <h2>14:35 <br> 01-05-2026</h2>
-    </div>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
+    <nav class="dock" aria-label="App dock">
+      <button class="dock-button start-button" id="startBtn" type="button" aria-label="Open apps menu" aria-expanded="false" aria-controls="startMenu">
+        <img src="image/windo.webp" alt="" width="27" height="27">
+      </button>
+      <span class="dock-divider" aria-hidden="true"></span>
+      <button class="dock-button" type="button" data-open-app="File Explorer" aria-label="Open File Explorer" title="File Explorer"><span class="dock-folder" aria-hidden="true">▰</span></button>
+      <button class="dock-button" type="button" data-open-app="Microsoft Edge" aria-label="Open Microsoft Edge" title="Microsoft Edge"><img src="image/edge.webp" alt="" width="30" height="30"></button>
+      <button class="dock-button" type="button" data-open-app="Chrome" aria-label="Open Chrome" title="Chrome"><img src="image/crome.webp" alt="" width="30" height="30"></button>
+      <div class="dock-spacer"></div>
+      <div class="dock-time"><time id="dockClock"></time><span id="dockDate"></span></div>
+    </nav>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
